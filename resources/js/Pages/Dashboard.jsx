@@ -3,6 +3,28 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 
 export default function Dashboard(props) {
+    if (props.auth.user.role_id == 1) {
+        return (
+            <div className="py-12">
+                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 text-gray-900">Selamat Datang Admin</div>
+                    </div>
+                </div>
+            </div>
+        )
+    } else if (props.auth.user.role_id == 2) {
+        return (
+            <div className="py-12">
+                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 text-gray-900">Selamat Datang User</div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <AuthenticatedLayout
             auth={props.auth}
@@ -18,27 +40,6 @@ export default function Dashboard(props) {
                     </div>
                 </div>
             </div>
-            {/* if (props.auth.user.role_id == 1) {
-                return (
-                    <div className="py-12">
-                        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                                <div className="p-6 text-gray-900">Selamat Datang Admin</div>
-                            </div>
-                        </div>
-                    </div>
-                )
-            } else if (props.auth.user.role_id == 2) {
-                return (
-                    <div className="py-12">
-                        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                                <div className="p-6 text-gray-900">Selamat Datang User</div>
-                            </div>
-                        </div>
-                    </div>
-                )
-            } */}
         </AuthenticatedLayout>
     );
 }
