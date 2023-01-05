@@ -33,6 +33,10 @@ export default function Login({ status, canResetPassword }) {
     return (
         <GuestLayout>
             <Head title="Log in" />
+            <div>
+                <h1 className='text-3xl font-extrabold flex justify-center text-white'>hallo again!</h1>
+                <p className='m-4 text-white font-semibold text-xl flex justify-center'>welcome back to the absence website</p>
+            </div>
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
             <form onSubmit={submit}>
                 <div>
@@ -42,7 +46,7 @@ export default function Login({ status, canResetPassword }) {
                         type="text"
                         name="email"
                         value={data.email}
-                        className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none  w-[23rem] xl:w-[25rem] text-white"
+                        className="rounded-lg bg-gray-700 mt-2 p-2   focus:border-blue-500 focus:bg-gray-800 focus:outline-none  w-[20rem] xl:w-[25rem] text-white"
                         autoComplete="username"
                         isFocused={true}
                         handleChange={onHandleChange}
@@ -59,7 +63,7 @@ export default function Login({ status, canResetPassword }) {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[23rem] xl:w-[25rem] text-white"
+                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[20rem] xl:w-[25rem] text-white"
                         autoComplete="current-password"
                         handleChange={onHandleChange}
                     />

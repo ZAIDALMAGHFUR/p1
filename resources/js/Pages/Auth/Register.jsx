@@ -43,7 +43,7 @@ export default function Register() {
                         type="text"
                         name="name"
                         value={data.name}
-                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[23rem] xl:w-[25rem] text-white"
+                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[19rem] xl:w-[25rem] text-white"
                         autoComplete="name"
                         isFocused={true}
                         handleChange={onHandleChange}
@@ -61,7 +61,7 @@ export default function Register() {
                         type="email"
                         name="email"
                         value={data.email}
-                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[23rem] xl:w-[25rem] text-white"
+                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[19rem] xl:w-[25rem] text-white"
                         autoComplete="username"
                         handleChange={onHandleChange}
                         required
@@ -78,7 +78,7 @@ export default function Register() {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[23rem] xl:w-[25rem] text-white"
+                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[19rem] xl:w-[25rem] text-white"
                         autoComplete="new-password"
                         handleChange={onHandleChange}
                         required
@@ -95,7 +95,7 @@ export default function Register() {
                         type="password"
                         name="password_confirmation"
                         value={data.password_confirmation}
-                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[23rem] xl:w-[25rem] text-white"
+                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[19rem] xl:w-[25rem] text-white"
                         handleChange={onHandleChange}
                         required
                     />
@@ -110,7 +110,7 @@ export default function Register() {
                         type="text"
                         name="phone"
                         value={data.phone}
-                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[23rem] xl:w-[25rem] text-white"
+                        className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none w-[19rem] xl:w-[25rem] text-white"
                         handleChange={onHandleChange}
                         required
                     />

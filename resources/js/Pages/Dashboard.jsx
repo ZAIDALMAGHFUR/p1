@@ -1,38 +1,51 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'boxicons';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 
 export default function Dashboard(props) {
+    // console.log(props.positions)
+    const getDate = new window.Date();
+
+    let time = getDate.toLocaleTimeString();
+        const [currentTime, setCurrentTime] = useState(time);
+
+        function updateTime(){
+            let getDate = new window.Date();
+            let time = getDate.toLocaleTimeString();
+            setCurrentTime(time);
+        }
+
+        setInterval(updateTime, 1000);
     if (props.auth.user.role_id == 1) {
         return (
             <AuthenticatedLayout
                 auth={props.auth}
                 errors={props.errors}
-                header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">All Data</h2>}
+                header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
             >
 
                 <Head title="Dashboard Admin" />
                 <div className="p-10 xl:flex">
-                    <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+                    <div className="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
                         <div
-                            class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-                            <div class="flex-auto p-4">
-                                <div class="flex flex-row -mx-3">
-                                    <div class="flex-none w-2/3 max-w-full px-3">
+                            className="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                            <div className="flex-auto p-4">
+                                <div className="flex flex-row -mx-3">
+                                    <div className="flex-none w-2/3 max-w-full px-3">
                                         <div>
                                             <p
-                                                class="mb-0 font-sans text-sm font-semibold leading-normal uppercase text-black dark:opacity-60">
+                                                className="mb-0 font-sans text-sm font-semibold leading-normal uppercase text-black dark:opacity-60">Total
                                                 Users</p>
-                                            <h5 class="mb-2 font-bold text-black">20 Pople</h5>
-                                            <p class="mb-0 text-black dark:opacity-60">
-                                                <span class="text-sm font-bold leading-normal text-emerald-500">All Users </span>
+                                            <h5 className="mb-2 font-bold text-black"> {props.user} users</h5>
+                                            <p className="mb-0 text-black dark:opacity-60">
+                                                <span className="text-sm font-bold leading-normal text-emerald-500">All Users </span>
                                                 This Website
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="px-3 text-right basis-1/3">
-                                        <div class="inline-block w-12 h-12 text-center pt-3 rounded-full bg-gradient-to-tl from-blue-500 to-violet-500">
+                                    <div className="px-3 text-right basis-1/3">
+                                        <div className="inline-block w-12 h-12 text-center pt-3 rounded-full bg-gradient-to-tl from-blue-500 to-violet-500">
                                             <box-icon name='user' color='#ffffff' ></box-icon>
                                         </div>
                                     </div>
@@ -41,26 +54,83 @@ export default function Dashboard(props) {
                         </div>
                     </div>
 
-                    <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+                    <div className="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
                         <div
-                            class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-                            <div class="flex-auto p-4">
-                                <div class="flex flex-row -mx-3">
-                                    <div class="flex-none w-2/3 max-w-full px-3">
+                            className="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                            <div className="flex-auto p-4">
+                                <div className="flex flex-row -mx-3">
+                                    <div className="flex-none w-2/3 max-w-full px-3">
                                         <div>
                                             <p
-                                                class="mb-0 font-sans text-sm font-semibold leading-normal uppercase text-black dark:opacity-60">
-                                                Users</p>
-                                            <h5 class="mb-2 font-bold text-black">20 Pople</h5>
-                                            <p class="mb-0 text-black dark:opacity-60">
-                                                <span class="text-sm font-bold leading-normal text-emerald-500">All Users </span>
+                                                className="mb-0 font-sans text-sm font-semibold leading-normal uppercase text-black dark:opacity-60">
+                                                total jabatan</p>
+                                            <h5 className="mb-2 font-bold text-black">{props.positions} Jabatan</h5>
+                                            <p className="mb-0 text-black dark:opacity-60">
+                                                <span className="text-sm font-bold leading-normal text-emerald-500">All </span>
                                                 This Website
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="px-3 text-right basis-1/3">
-                                        <div class="inline-block w-12 h-12 text-center pt-3 rounded-full bg-gradient-to-tl from-red-600 to-orange-600">
-                                            <box-icon name='user' color='#ffffff' ></box-icon>
+                                    <div className="px-3 text-right basis-1/3">
+                                        <div className="inline-block w-12 h-12 text-center pt-3 rounded-full bg-gradient-to-tl from-cyan-700 to-blue-500">
+                                            <box-icon name='food-menu' color='#ffffff' ></box-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+                        <div
+                            className="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                            <div className="flex-auto p-4">
+                                <div className="flex flex-row -mx-3">
+                                    <div className="flex-none w-2/3 max-w-full px-3">
+                                        <div>
+                                            <p
+                                                className="mb-0 font-sans text-sm font-semibold leading-normal uppercase text-black dark:opacity-60">
+                                                total Hari libur</p>
+                                                <h5 className="mb-2 font-bold text-black">{props.Holiday} Hari Libur</h5>
+                                                    <p className="mb-0 text-black dark:opacity-60">
+                                                        <span className="text-sm font-bold leading-normal text-emerald-500">All </span>
+                                                        This Website
+                                                    </p>
+                                        </div>
+                                    </div>
+                                    <div className="px-3 text-right basis-1/3">
+                                        <div className="inline-block w-12 h-12 text-center pt-3 rounded-full bg-gradient-to-tl from-red-600 to-orange-600">
+                                            <box-icon name='landscape' color='#ffffff' ></box-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+                        <div
+                            className="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                            <div className="flex-auto p-4">
+                                <div className="flex flex-row -mx-3">
+                                    <div className="flex-none w-2/3 max-w-full px-3">
+                                        <div>
+                                            <p
+                                                className="mb-0 font-sans text-sm font-semibold leading-normal uppercase text-black dark:opacity-60">
+                                                Jam  saat ini</p>
+                                                {
+                                                    currentTime
+                                                }
+                                                <p className="mb-0 text-black dark:opacity-60">
+                                                        <span className="text-sm font-bold leading-normal text-emerald-500">All </span>
+                                                        This Website
+                                                </p>
+                                            
+                                        </div>
+                                    </div>
+                                    <div className="px-3 text-right basis-1/3">
+                                        <div className="inline-block w-12 h-12 text-center pt-3 rounded-full bg-gradient-to-tl from-blue-600 to-purple-600">
+                                        <box-icon type='solid' name='hourglass-bottom' color='#ffffff'></box-icon>
                                         </div>
                                     </div>
                                 </div>
@@ -72,92 +142,25 @@ export default function Dashboard(props) {
 
             </AuthenticatedLayout>
         )
-    } else if (props.auth.user.role_id == 3) {
+    } else if (props.auth.user.role_id != 1) {
         return (
-            // <AuthenticatedLayout
-            //     auth={props.auth}
-            //     errors={props.errors}
-            //     header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
-            // >
-            //     <Head title="Dashboard" />
+            <AuthenticatedLayout
+                auth={props.auth}
+                errors={props.errors}
+                ilang="hidden"
+                header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
+            >
+                <Head title="Dashboard" />
 
-            //     <div className="py-12">
-            //         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            //             <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            //                 <div className="p-6 text-gray-900">Welcome User</div>
-            //             </div>
-            //         </div>
-            //     </div>
-            // </AuthenticatedLayout>
-
-            <div class="min-h-screen bg-gray-100">
-                <div class="sidebar min-h-screen w-[3.35rem] overflow-hidden border-r hover:w-56 hover:bg-white hover:shadow-lg">
-                    <div class="flex h-screen flex-col justify-between pt-2 pb-6">
-                        <div>
-                            <div class="w-max p-2.5">
-                                <box-icon name='user' color='#000' ></box-icon>
-                            </div>
-                            <ul class="mt-6 space-y-2 tracking-wide">
-                                <li class="min-w-max">
-                                    <a href="#" aria-label="dashboard" class="relative flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white">
-                                        <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
-                                            <path d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z" class="fill-current text-cyan-400 dark:fill-slate-600"></path>
-                                            <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z" class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
-                                            <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z" class="fill-current group-hover:text-sky-300"></path>
-                                        </svg>
-                                        <span class="-mr-1 font-medium">Dashboard</span>
-                                    </a>
-                                </li>
-                                <li class="min-w-max">
-                                    <a href="#" class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path class="fill-current text-gray-300 group-hover:text-cyan-300" fill-rule="evenodd" d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z" clip-rule="evenodd" />
-                                            <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z" />
-                                        </svg>
-                                        <span class="group-hover:text-gray-700">Categories</span>
-                                    </a>
-                                </li>
-                                <li class="min-w-max">
-                                    <a href="#" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd" />
-                                            <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
-                                        </svg>
-                                        <span class="group-hover:text-gray-700">Reports</span>
-                                    </a>
-                                </li>
-                                <li class="min-w-max">
-                                    <a href="#" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-                                            <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-                                        </svg>
-                                        <span class="group-hover:text-gray-700">Other data</span>
-                                    </a>
-                                </li>
-                                <li class="min-w-max">
-                                    <a href="#" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
-                                            <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span class="group-hover:text-gray-700">Finance</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="w-max -mb-3">
-                            <a href={route('profile.edit')} as="button" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:fill-cyan-600" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                                </svg>
-                                <a className='group-hover:text-gray-700' href={route('profile.edit')}>Acount</a>
-                            </a>
+                <div className="py-12">
+                    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                            <div className="p-6 text-gray-900">Welcome User</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </AuthenticatedLayout>
         )
     }
 }
+

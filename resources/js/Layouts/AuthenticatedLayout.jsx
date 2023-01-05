@@ -5,7 +5,7 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
 
-export default function Authenticated({ auth, header, children }) {
+export default function Authenticated({ auth, header, children, ilang }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
@@ -21,12 +21,16 @@ export default function Authenticated({ auth, header, children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    All Data
-                                </NavLink>
-                                <NavLink href={route('admin')} active={route().current('admin')}>
-                                    Absensi
-                                </NavLink>
+                                <div className='mt-5'>
+                                    <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                        Dashboard
+                                    </NavLink>
+                                </div>
+                                <div className={`pt-5 ${ilang}`}>
+                                    <NavLink href={route('jabatan')} active={route().current('jabatan')}>
+                                        Jabatan/posisi
+                                    </NavLink>
+                                </div>
                             </div>
                         </div>
 
@@ -95,12 +99,16 @@ export default function Authenticated({ auth, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            ALL Data
+                        <div className="mt-5">
+                            <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                Dashboard
+                            </ResponsiveNavLink>
+                        </div>
+                        <div className={`pt-5 ${ilang}`}>
+                        <ResponsiveNavLink href={route('jabatan')} active={route().current('jabatan')}>
+                            Jabatan/posisi
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('admin')} active={route().current('admin')}>
-                            Absensi
-                        </ResponsiveNavLink>
+                        </div>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
