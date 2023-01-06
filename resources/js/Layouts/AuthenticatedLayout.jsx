@@ -5,7 +5,7 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
 
-export default function Authenticated({ auth, header, children, ilang }) {
+export default function Authenticated({ auth, header, children, ilang, ganampak}) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
@@ -29,6 +29,11 @@ export default function Authenticated({ auth, header, children, ilang }) {
                                 <div className={`pt-5 ${ilang}`}>
                                     <NavLink href={route('jabatan')} active={route().current('jabatan')}>
                                         Jabatan/posisi
+                                    </NavLink>
+                                </div>
+                                <div className={`pt-5 ${ilang}`}>
+                                    <NavLink href={route('kariawan')} active={route().current('kariawan')}>
+                                        karyawan
                                     </NavLink>
                                 </div>
                             </div>
@@ -105,9 +110,14 @@ export default function Authenticated({ auth, header, children, ilang }) {
                             </ResponsiveNavLink>
                         </div>
                         <div className={`pt-5 ${ilang}`}>
-                        <ResponsiveNavLink href={route('jabatan')} active={route().current('jabatan')}>
-                            Jabatan/posisi
-                        </ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('jabatan')} active={route().current('jabatan')}>
+                                Jabatan/posisi
+                            </ResponsiveNavLink>
+                        </div>
+                        <div className={`pt-5 ${ilang}`}>
+                            <ResponsiveNavLink href={route('kariawan')} active={route().current('kariawan')}>
+                                karyawan
+                            </ResponsiveNavLink>
                         </div>
                     </div>
 

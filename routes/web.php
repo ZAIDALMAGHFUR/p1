@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KariawanController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -36,7 +37,16 @@ Route::get('/jabatan',[JabatanController::class, 'index'])->middleware(['auth', 
 Route::get('/addjabatan',[JabatanController::class, 'addjabatan'])->middleware(['auth', 'OnlyAdmin'])->name('addjabatan');
 Route::post('/storejabatan',[JabatanController::class, 'store'])->middleware(['auth', 'OnlyAdmin'])->name('storejabatan');
 Route::get('/editjabatan/{id}', [JabatanController::class, 'edit'])->middleware(['auth', 'OnlyAdmin'])->name('edit');
-Route::post('/updatejabatan/{id}', [JabatanController::class, 'update'])->middleware(['auth', 'OnlyAdmin'])->name('update');
+Route::put('/updatejabatan/{id}', [JabatanController::class, 'update'])->middleware(['auth', 'OnlyAdmin'])->name('update');
+Route::delete('/deletejabatan/{id}', [JabatanController::class, 'destroy'])->middleware(['auth', 'OnlyAdmin'])->name('delete');
+
+//kariawan route
+Route::get('/kariawan',[KariawanController::class, 'index'])->middleware(['auth', 'OnlyAdmin'])->name('kariawan');
+Route::get('/addkariawan',[KariawanController::class, 'addkariawan'])->middleware(['auth', 'OnlyAdmin'])->name('addkariawan');
+Route::post('/storekariawan',[KariawanController::class, 'store'])->middleware(['auth', 'OnlyAdmin'])->name('storekariawan');
+Route::get('/editkariawan/{id}', [KariawanController::class, 'edit'])->middleware(['auth', 'OnlyAdmin'])->name('editkariawan');
+Route::put('/updatekariawan/{id}', [KariawanController::class, 'update'])->middleware(['auth', 'OnlyAdmin'])->name('updatekariawan');
+Route::delete('/deletekariawan/{id}', [KariawanController::class, 'destroy'])->middleware(['auth', 'OnlyAdmin'])->name('deletekariawan');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -10,38 +10,47 @@ class JabatanController extends Controller
 {
     public function index()
     {
-        $Position = positions::all();
+        $position = Position::all();
         // dd($Position);
-        return inertia('jabatan',[
-            'Position' => $Position,
+        return inertia('Admin/jabatan',[
+            'Position' => $position,
         ]);
     }
 
     public function addjabatan()
     {
-        return inertia('addjabatan');
+        return inertia('Admin/addjabatan');
     }
 
     public function store(Request $request)
     {
-        $Position = new positions();
-        $Position->name = $request->name;
-        $Position->save();
+        $position = new Position();
+        $position->name = $request->name;
+        $position->save();
         return redirect()->back()->with('massage', 'Data Jabatan Berhasil Ditambahkan');
     }
 
-    public function edit(positions $positions, Request $request)
+    public function edit(Position $position, $id )
     {
-        return inertia('editjabatan',[
-            'data' => $positions->find($request-> id)
+        $position = Position::find($id);
+        return inertia('Admin/editjabatan',[
+            'alljabatan' => $position,
         ]);
     }
 
-    public function update(positions $positions, Request $request)
+    public function update(Request $request, $id)
     {
-        $positions->where('id', $request->id)->update([
-            'name' => $request->name,
-        ]);
-        return redirect()->back()->with('massage', 'Data Jabatan Berhasil Diubah');
+        $position = Position::find($id);
+        $position->name = $request->name;
+        $position->save();
+        return redirect()->route('jabatan')->with('massage', 'Data Jabatan Berhasil Diupdate');
+    }
+
+    public function destroy($id)
+    {
+        $position = Position::find($id);
+        $position->delete();
+        return redirect()->route('jabatan')->with('massage', 'Data Jabatan Berhasil Dihapus');
     }
 }
+
