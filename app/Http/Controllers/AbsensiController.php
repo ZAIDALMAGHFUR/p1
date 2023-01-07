@@ -26,4 +26,20 @@ class AbsensiController extends Controller
             'Position' => $position,
         ]);
     }
+
+
+    public function store(Request $request)
+    {
+        // dd($request->all());
+        $Attendance = new Attendance();
+        $Attendance->title = $request->title;
+        $Attendance->description = $request->description;
+        $Attendance->start_time = $request->start_time;
+        $Attendance->batas_start_time = $request->batas_start_time;
+        $Attendance->end_time = $request->end_time;
+        $Attendance->batas_end_time = $request->batas_end_time;
+        $Attendance->position_id = $request->position_id;
+        $Attendance->save();
+        return redirect()->back();
+    }
 }

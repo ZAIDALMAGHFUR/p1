@@ -14,7 +14,6 @@ export default function addJabatan(props) {
     const [position_id, setPosition_id] = useState('');
     const [role_id, setRole_id] = useState('');
     
-    const [isNotif, setIsNotif] = useState(false);
     const handleSubmit = () => {
         const data = {
             name,

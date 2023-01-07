@@ -61,6 +61,7 @@ Route::delete('/deleteharilibur/{id}', [HariliburController::class, 'destroy'])-
 //Absensi
 Route::get('/absensi',[AbsensiController::class, 'index'])->middleware(['auth', 'OnlyAdmin'])->name('absensi');
 Route::get('/addabsensi',[AbsensiController::class, 'addabsensi'])->middleware(['auth', 'OnlyAdmin'])->name('addabsensi');
+Route::post('/storeabsensi',[AbsensiController::class, 'store'])->middleware(['auth', 'OnlyAdmin'])->name('storeabsensi');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
