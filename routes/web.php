@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KariawanController;
@@ -56,6 +57,10 @@ Route::post('/storeharilibur',[HariliburController::class, 'store'])->middleware
 Route::get('/editharilibur/{id}', [HariliburController::class, 'edit'])->middleware(['auth', 'OnlyAdmin'])->name('editharilibur');
 Route::put('/updateharilibur/{id}', [HariliburController::class, 'update'])->middleware(['auth', 'OnlyAdmin'])->name('updateharilibur');
 Route::delete('/deleteharilibur/{id}', [HariliburController::class, 'destroy'])->middleware(['auth', 'OnlyAdmin'])->name('deleteharilibur');
+
+//Absensi
+Route::get('/absensi',[AbsensiController::class, 'index'])->middleware(['auth', 'OnlyAdmin'])->name('absensi');
+Route::get('/addabsensi',[AbsensiController::class, 'addabsensi'])->middleware(['auth', 'OnlyAdmin'])->name('addabsensi');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

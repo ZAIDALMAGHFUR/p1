@@ -5,7 +5,7 @@ import { Head } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 import Swal from 'sweetalert2'
 
-export default function addJabatan(props) {
+export default function addHarilibur(props) {
 
 
     const [title, setTitle] = useState('');
