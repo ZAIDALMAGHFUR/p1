@@ -36,6 +36,11 @@ export default function Authenticated({ auth, header, children, ilang, ganampak}
                                         karyawan
                                     </NavLink>
                                 </div>
+                                <div className={`pt-5 ${ilang}`}>
+                                    <NavLink href={route('harilibur')} active={route().current('harilibur')}>
+                                        Hari Libur
+                                    </NavLink>
+                                </div>
                             </div>
                         </div>
 
@@ -117,6 +122,11 @@ export default function Authenticated({ auth, header, children, ilang, ganampak}
                         <div className={`pt-5 ${ilang}`}>
                             <ResponsiveNavLink href={route('kariawan')} active={route().current('kariawan')}>
                                 karyawan
+                            </ResponsiveNavLink>
+                        </div>
+                        <div className={`pt-5 ${ilang}`}>
+                            <ResponsiveNavLink href={route('harilibur')} active={route().current('harilibur')}>
+                                Hari Libur
                             </ResponsiveNavLink>
                         </div>
                     </div>

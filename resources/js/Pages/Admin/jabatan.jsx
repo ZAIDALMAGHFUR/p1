@@ -24,28 +24,42 @@ export default function Jabatan(props) {
                     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 whitespace-nowrap">
+                                    <th scope="col" className="px-6 py-3 border">No</th>
                                     <th scope="col" className="px-6 py-3">Name</th>
                                     <th scope="col" className="px-6 py-3">created at</th>
-                                    <th scope="col" className="px-6 py-3">Action</th>
+                                    <th scope="col" className="px-6 py-3">Edit</th>
+                                    <th scope="col" className="px-6 py-3">Delete</th>
                                 </tr>
                             </thead>
                             {props.Position ? props.Position.map((data, i) => {
                                     return(
                                         <tbody key={i}>
-                                            <tr className="bg-white dark:bg-gray-800">
-                                                <td className="px-6 py-4">{data.name}</td>
-                                                <td className="px-6 py-4">{data.created_at}</td>
-                                                <td className="px-6 py-4">
-                                                    <div className='text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>
-                                                        {/* <InertiaLink href={`/editjabatan/${data.id}`}>edit</InertiaLink> */}
-                                                        <Link href={`/editjabatan/${data.id}` }>edit</Link>
-                                                    </div>
+                                            <tr className="bg-white dark:bg-gray-800 whitespace-nowrap" key={i}>
+                                                <td className="px-6 py-4 border">{i + 1 }</td>
+                                                <td className="px-6 py-4 border-b">{data.name}</td>
+                                                <td className="px-6 py-4 border-b">{data.created_at}</td>
+                                                <td className="px-6 py-4 border-b">
 
-                                                    <div className='text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>
-                                                        <Link href={`/deletejabatan/${data.id}`} method="delete">delete</Link>
-                                                        {/* <Delete URL={'/deletejabatan'} id={data.id} /> */}
-                                                    </div>
+                                                        <Link href={`/editjabatan/${data.id}` }>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-blue-400" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                            </svg>
+                                                        </Link>
+                                                </td>
+
+
+                                                <td className="px-6 py-4 border-b">
+
+                                                    <Link href={`/deletejabatan/${data.id}`} method="delete">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-red-400" fill="none"
+                                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                            </svg>
+                                                    </Link>
                                                 </td>
                                             </tr>
                                         </tbody>    
