@@ -72,10 +72,10 @@ class KariawanController extends Controller
         return redirect()->route('kariawan')->with('massage', 'Data Kariawan Berhasil Diupdate');
     }
 
-    public function destroy($id)
+    public function destroy( User $user, $id)
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('kariawan')->with('massage', 'Data Kariawan Berhasil Dihapus');   
+        return redirect()->route('kariawan')->with('massage', 'Data Kariawan Berhasil Dihapus');
     }
 }
