@@ -3,7 +3,6 @@ import 'boxicons';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 import { Inertia } from "@inertiajs/inertia";
-// import { Inertia } from '@inertiajs/inertia';
 
 export default function editjabatan(props) {
 
@@ -19,6 +18,18 @@ export default function editjabatan(props) {
             //data
             name: name,
             _method: "PUT"
+        },{
+            onSuccess: () => {
+
+                //show alert
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Data updated successfully!',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
         });
     }
     console.log(props.alljabatan.id);

@@ -29,7 +29,7 @@ class HariliburController extends Controller
         $holiday->description = $request->description;
         $holiday->holiday_date = $request->holiday_date;
         $holiday->save();
-        return redirect()->back()->with('massage', 'Data Hari Libur Berhasil Ditambahkan');
+        return redirect()->back();
     }
 
     public function edit(Holiday $holiday, $id)
@@ -47,13 +47,13 @@ class HariliburController extends Controller
         $holiday->description = $request->description;
         $holiday->holiday_date = $request->holiday_date;
         $holiday->save();
-        return redirect()->route('harilibur')->with('massage', 'Data Hari Libur Berhasil Diupdate');
+        return redirect()->route('harilibur');
     }
 
     public function destroy($id)
     {
         $holiday = Holiday::find($id);
         $holiday->delete();
-        return redirect()->route('harilibur')->with('massage', 'Data Hari Libur Berhasil Dihapus');
+        return redirect()->route('harilibur');
     }
 }

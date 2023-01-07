@@ -27,7 +27,7 @@ class JabatanController extends Controller
         $position = new Position();
         $position->name = $request->name;
         $position->save();
-        return redirect()->back()->with('massage', 'Data Jabatan Berhasil Ditambahkan');
+        return redirect()->back();
     }
 
     public function edit(Position $position, $id )
@@ -43,14 +43,14 @@ class JabatanController extends Controller
         $position = Position::find($id);
         $position->name = $request->name;
         $position->save();
-        return redirect()->route('jabatan')->with('massage', 'Data Jabatan Berhasil Diupdate');
+        return redirect()->route('jabatan');
     }
 
     public function destroy($id)
     {
         $position = Position::find($id);
         $position->delete();
-        return redirect()->route('jabatan')->with('massage', 'Data Jabatan Berhasil Dihapus');
+        return redirect()->route('jabatan');
     }
 }
 

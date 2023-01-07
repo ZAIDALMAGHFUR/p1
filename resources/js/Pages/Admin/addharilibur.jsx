@@ -17,11 +17,14 @@ export default function addJabatan(props) {
             description,
             holiday_date
         }
-        Swal.fire(
-            'Hari libur berhasil di tambahakan !',
-            'Klik tombol di bawah ini untuk melanjutkan !',
-            'success'
-          )
+
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Hari libur berhasil di tambahkan!',
+            showConfirmButton: true,
+          })
+
         Inertia.post('/storeharilibur', data)
         setTitle('')
         setDescription('')
