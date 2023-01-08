@@ -30,7 +30,9 @@ export default function HariLibur(props) {
                                             <th scope="col" className="px-6 py-3">NAMA Absensi</th>
                                             <th scope="col" className="px-6 py-3">KETERANGAN</th>
                                             <th scope="col" className="px-6 py-3">Waktu Absen Masuk</th>
+                                            <th scope="col" className="px-6 py-3">Waktu batas Absen Masuk</th>
                                             <th scope="col" className="px-6 py-3">Waktu Absen Keluar</th>
+                                            <th scope="col" className="px-6 py-3">Waktu Batas Absen Keluar</th>
                                             <th scope="col" className="px-6 py-3">EDIT</th>
                                             <th scope="col" className="px-6 py-3">DELETE</th>
                                         </tr>
@@ -48,7 +50,7 @@ export default function HariLibur(props) {
                                                         <td className="px-6 py-4 border-b">{data.batas_end_time}</td>
                                                         <td className="px-6 py-4 border-b">
 
-                                                                <Link href={`/editharilibur/${data.id}` }>
+                                                                <Link href={`/editabsensi/${data.id}` }>
                                                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-blue-400" fill="none"
                                                                         viewBox="0 0 24 24" stroke="currentColor">
                                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -58,7 +60,7 @@ export default function HariLibur(props) {
                                                         </td>
 
                                                         <td className="px-6 py-4 border-b">
-                                                            <Delete URL={'/deleteharilibur'} id={data.id} />
+                                                            <Delete URL={'/deleteabsensi'} id={data.id} />
                                                         </td>
                                                     </tr>
                                                 </tbody>    

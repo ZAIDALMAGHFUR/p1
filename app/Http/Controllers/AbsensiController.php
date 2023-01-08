@@ -30,8 +30,38 @@ class AbsensiController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $Attendance = new Attendance();
+        $Attendance->title = $request->title;
+        $Attendance->description = $request->description;
+        $Attendance->start_time = $request->start_time;
+        $Attendance->batas_start_time = $request->batas_start_time;
+        $Attendance->end_time = $request->end_time;
+        $Attendance->batas_end_time = $request->batas_end_time;
+        // $Attendance->position_id = $request->position_id;
+        $Attendance->save();
+        // dd($Attendance);
+        $array = [];
+            foreach((array)$request->position_id as $key => $value) {
+                $array[] = [
+                    'attendance_id' => $Attendance->id,
+                    'position_id' => $value
+                ];
+            }
+            $Attendance->izinposisi()->insert($array);
+        return redirect()->back();
+    }
+
+    public function edit($id)
+    {
+        $Attendance = Attendance::find($id);
+        return inertia('Admin/editabsensi',[
+            'allabsensi' => $Attendance,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $Attendance = Attendance::find($id);
         $Attendance->title = $request->title;
         $Attendance->description = $request->description;
         $Attendance->start_time = $request->start_time;
@@ -40,6 +70,13 @@ class AbsensiController extends Controller
         $Attendance->batas_end_time = $request->batas_end_time;
         $Attendance->position_id = $request->position_id;
         $Attendance->save();
-        return redirect()->back();
+        return redirect()->route('absensi');
+    }
+
+    public function destroy($id)
+    {
+        $Attendance = Attendance::find($id);
+        $Attendance->delete();
+        return redirect()->route('absensi');
     }
 }
