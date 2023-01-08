@@ -54,8 +54,10 @@ class AbsensiController extends Controller
     public function edit($id)
     {
         $Attendance = Attendance::find($id);
+        $position = Position::all();
         return inertia('Admin/editabsensi',[
             'allabsensi' => $Attendance,
+            'Position' => $position,
         ]);
     }
 
@@ -70,6 +72,14 @@ class AbsensiController extends Controller
         $Attendance->batas_end_time = $request->batas_end_time;
         $Attendance->position_id = $request->position_id;
         $Attendance->save();
+        $array = [];
+            foreach((array)$request->position_id as $key => $value) {
+                $array[] = [
+                    'attendance_id' => $Attendance->id,
+                    'position_id' => $value
+                ];
+            }
+            $Attendance->izinposisi()->insert($array);
         return redirect()->route('absensi');
     }
 

@@ -3,6 +3,8 @@ import 'boxicons';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 import { Inertia } from "@inertiajs/inertia";
+import Swal from 'sweetalert2'
+
 
 export default function editjabatan(props) {
 

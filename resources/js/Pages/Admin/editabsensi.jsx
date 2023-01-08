@@ -3,6 +3,8 @@ import 'boxicons';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 import { Inertia } from "@inertiajs/inertia";
+import Swal from 'sweetalert2'
+
 
 export default function editabsensi(props) {
 
@@ -14,6 +16,7 @@ export default function editabsensi(props) {
     const [end_time, setEnd_time] = useState(props.allabsensi.end_time);
     const [batas_end_time, setBatas_end_time] = useState(props.allabsensi.batas_end_time);
     const [attendance_id, setAttendance_id] = useState(props.allabsensi.attendance_id);
+    const [position_id, setPosition_id] = useState(props.allabsensi.position_id);
     
     //method "updateCategory"
     const updatePosition = async (e) => {
@@ -29,6 +32,7 @@ export default function editabsensi(props) {
             end_time: end_time,
             batas_end_time: batas_end_time,
             attendance_id: attendance_id,
+            position_id: position_id,
             _method: "PUT"
         },{
             onSuccess: () => {
@@ -44,7 +48,7 @@ export default function editabsensi(props) {
             }
         });
     }
-    console.log(props.allabsensi.id);
+    console.log(props.Position);
     return (
 
         <AuthenticatedLayout
@@ -85,6 +89,26 @@ export default function editabsensi(props) {
                             <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas Jam Keluar</label>
                             <input type="name" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Manager" value={batas_end_time} onChange={(e) => setBatas_end_time(e.target.value)}/>
                         </div>
+                        <div>
+                                <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Position</label>
+                                <select name="jabatan[]" id="jabatan"className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" value={position_id} onChange={(e) => setPosition_id(e.target.value)}> 
+                                   {/* {props.position.map((position, index) => {
+                                        return(
+                                            <option key={index} value={position.id}>
+                                                {position.name}
+                                            </option>
+                                            )})
+                                   } */}
+
+                                
+                                { props.position ?.map((c) => (
+                                    <option key={index} value={position.id}>
+                                    {position.name}
+                                    </option>
+                                ))};
+                               
+                                </select>
+                            </div>
                         <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update Absensi</button>
                     </form>
                 </div>
