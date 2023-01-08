@@ -70,7 +70,7 @@ class AbsensiController extends Controller
         $Attendance->batas_start_time = $request->batas_start_time;
         $Attendance->end_time = $request->end_time;
         $Attendance->batas_end_time = $request->batas_end_time;
-        $Attendance->position_id = $request->position_id;
+        // $Attendance->position_id = $request->position_id;
         $Attendance->save();
         $array = [];
             foreach((array)$request->position_id as $key => $value) {
