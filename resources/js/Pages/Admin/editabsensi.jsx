@@ -75,33 +75,24 @@ export default function editabsensi(props) {
                         </div>
                         <div>
                             <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jam masuk</label>
-                            <input type="name" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Manager" value={start_time} onChange={(e) => setStart_time(e.target.value)}/>
+                            <input type="time" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Manager" value={start_time} onChange={(e) => setStart_time(e.target.value)}/>
                         </div>
                         <div>
                             <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas Jam Masuk</label>
-                            <input type="name" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Manager" value={batas_start_time} onChange={(e) => setBatas_start_time(e.target.value)}/>
+                            <input type="time" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Manager" value={batas_start_time} onChange={(e) => setBatas_start_time(e.target.value)}/>
                         </div>
                         <div>
                             <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jam Keluar</label>
-                            <input type="name" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Manager" value={end_time} onChange={(e) => setEnd_time(e.target.value)}/>
+                            <input type="time" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Manager" value={end_time} onChange={(e) => setEnd_time(e.target.value)}/>
                         </div>
                         <div>
                             <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas Jam Keluar</label>
-                            <input type="name" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Manager" value={batas_end_time} onChange={(e) => setBatas_end_time(e.target.value)}/>
+                            <input type="time" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Manager" value={batas_end_time} onChange={(e) => setBatas_end_time(e.target.value)}/>
                         </div>
                         <div>
                                 <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Position</label>
                                 <select name="jabatan[]" id="jabatan"className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" value={position_id} onChange={(e) => setPosition_id(e.target.value)}> 
-                                   {/* {props.position.map((position, index) => {
-                                        return(
-                                            <option key={index} value={position.id}>
-                                                {position.name}
-                                            </option>
-                                            )})
-                                   } */}
-
-                                
-                                { props.position ?.map((c) => (
+                                { props.position ?.map((position, index) => (
                                     <option key={index} value={position.id}>
                                     {position.name}
                                     </option>

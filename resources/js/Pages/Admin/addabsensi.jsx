@@ -73,19 +73,19 @@ export default function addAbsensi(props) {
                         </div>
                         <div>
                             <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">start time</label>
-                            <input type="text" name="keterangan" id="keterangan" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  onChange={(start_time) => setStart_time(start_time.target.value)} value={start_time}/>
+                            <input type="time" name="keterangan" id="keterangan" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  onChange={(start_time) => setStart_time(start_time.target.value)} value={start_time}/>
                         </div>
                         <div>
                             <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">batas start time</label>
-                            <input type="text" name="keterangan" id="keterangan" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  onChange={(batas_start_time) => setBatas_start_time(batas_start_time.target.value)} value={batas_start_time}/>
+                            <input type="time" name="keterangan" id="keterangan" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  onChange={(batas_start_time) => setBatas_start_time(batas_start_time.target.value)} value={batas_start_time}/>
                         </div>
                         <div>
                             <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">end time</label>
-                            <input type="text" name="keterangan" id="keterangan" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  onChange={(end_time) => setEnd_time(end_time.target.value)} value={end_time}/>
+                            <input type="time" name="keterangan" id="keterangan" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  onChange={(end_time) => setEnd_time(end_time.target.value)} value={end_time}/>
                         </div>
                         <div>
                             <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">batas end ime</label>
-                            <input type="text" name="keterangan" id="keterangan" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  onChange={(batas_end_time) => setBatas_end_time(batas_end_time.target.value)} value={batas_end_time}/>
+                            <input type="time" name="keterangan" id="keterangan" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  onChange={(batas_end_time) => setBatas_end_time(batas_end_time.target.value)} value={batas_end_time}/>
                         </div>
 
                         <div>
