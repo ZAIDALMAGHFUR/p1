@@ -14,12 +14,12 @@ return new class () extends Migration {
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('description', 500)->nullable();
-            $table->time('start_time')->nullable(); // mulai absen masuk
-            $table->time('batas_start_time')->nullable(); // akhir absen masuk
-            $table->time('end_time')->nullable(); // mulai absen pulang
-            $table->time('batas_end_time')->nullable(); // akhir absen pulang
+            $table->string('title');
+            $table->string('description', 500)->required();
+            $table->time('start_time'); // mulai absen masuk
+            $table->time('batas_start_time'); // akhir absen masuk
+            $table->time('end_time'); // mulai absen pulang
+            $table->time('batas_end_time'); // akhir absen pulang
             $table->string('code')->nullable(); // for qrcode kalau kosong berarti hanya pakai button
             $table->timestamps();
         });

@@ -11,11 +11,11 @@ export default function addAbsensi(props) {
     const data = props.Position.map(val => val.name);
     const options = data.map((val, index) => {
         return {
-            value: index,
+            value: props.Position[index].id,
             label: val,
         };
     });
-    
+    console.log(options);
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -25,6 +25,10 @@ export default function addAbsensi(props) {
     const [batas_end_time, setBatas_end_time] = useState("");
     const [attendance_id, setAttendance_id] = useState("");
     const [position_id, setPosition_id] = useState([]);
+
+    /** Only get the id */
+    const selectedPositionId = position_id.map((item) => item.value);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = {
@@ -35,7 +39,7 @@ export default function addAbsensi(props) {
             end_time,
             batas_end_time,
             attendance_id,
-            position_id,
+            position_id: selectedPositionId,
         };
 
         console.log(data);
@@ -56,8 +60,11 @@ export default function addAbsensi(props) {
         setPosition_id([]);
     };
 
-    console.log(options);
-    // console.log(props.Position.map(val => val.name));
+
+
+    const handleJabatanChange = (position_id) => {
+        setPosition_id(position_id)
+    }
     
     return (
         <AuthenticatedLayout
@@ -85,14 +92,14 @@ export default function addAbsensi(props) {
                                 type="name"
                                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                             >
-                                Nama/Judul Hari
+                                Nama/Judul Absensi
                             </label>
                             <input
                                 type="name"
                                 name="name"
                                 id="name"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="Hari Ahad"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                                placeholder="Hari Senin" required
                                 onChange={(title) =>
                                     setTitle(title.target.value)
                                 }
@@ -110,8 +117,8 @@ export default function addAbsensi(props) {
                                 type="keterangan"
                                 name="keterangan"
                                 id="keterangan"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="Hari Ahad"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
+                                placeholder="Hari Ahad" required
                                 onChange={(description) =>
                                     setDescription(description.target.value)
                                 }
@@ -129,7 +136,7 @@ export default function addAbsensi(props) {
                                 type="time"
                                 name="keterangan"
                                 id="keterangan"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 " required
                                 onChange={(start_time) =>
                                     setStart_time(start_time.target.value)
                                 }
@@ -147,7 +154,7 @@ export default function addAbsensi(props) {
                                 type="time"
                                 name="keterangan"
                                 id="keterangan"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "required
                                 onChange={(batas_start_time) =>
                                     setBatas_start_time(
                                         batas_start_time.target.value
@@ -167,7 +174,7 @@ export default function addAbsensi(props) {
                                 type="time"
                                 name="keterangan"
                                 id="keterangan"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "required
                                 onChange={(end_time) =>
                                     setEnd_time(end_time.target.value)
                                 }
@@ -185,7 +192,7 @@ export default function addAbsensi(props) {
                                 type="time"
                                 name="keterangan"
                                 id="keterangan"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "required
                                 onChange={(batas_end_time) =>
                                     setBatas_end_time(
                                         batas_end_time.target.value
@@ -194,60 +201,20 @@ export default function addAbsensi(props) {
                                 value={batas_end_time}
                             />
                         </div>
-
-                        {/* <div>
-                                <label type="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Position</label>
-                                <select name="jabatan[]" id="jabatan"className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" onChange={(event) => setPosition_id(event.target.value)}value={position_id}> 
-                                   {props.Position.map((position, index) => {
-                                        return(
-                                            <option id="positions" key={index} value={position.id}>
-                                                {position.name}
-                                            </option>
-                                            )})
-                                   }
-                                </select>
-                        </div> */}
-
-                        {/* <div className="flex items-center mb-4">
-                            <input
-                                id="default-checkbox"
-                                type="checkbox"
-                                value=""
-                                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                            />
-                            <label
-                                name="jabatan[]"
-                                htmlFor="default-checkbox"
-                                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                onChange={(event) =>
-                                    setPosition_id(event.target.value)
-                                }
-                                value={position_id}
+                        <label
+                            type="name"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                             >
-                                {props.Position.map((position, index) => {
-                                    return (
-                                        <label
-                                            id="positions"
-                                            key={index}
-                                            value={position.id}
-                                        >
-                                            {position.name}
-                                        </label>
-                                    );
-                                })}
-                            </label>
-                        </div> */}
-
-
-                        {/* <Select options={options} /> */}
-
+                            posisi
+                        </label>
                         <Select
                             isMulti
                             name="jabatan[]"
                             options={options}
                             className="basic-multi-select"
-                            classNamePrefix="select"
-                            onChange={(event) => setPosition_id(event.target.value)} value={position_id}
+                            classNamePrefix="select" required
+                            onChange={handleJabatanChange}
+                            value={position_id}
                         />
                         
                         <input

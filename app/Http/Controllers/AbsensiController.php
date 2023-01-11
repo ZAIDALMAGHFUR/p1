@@ -30,6 +30,8 @@ class AbsensiController extends Controller
 
     public function store(Request $request)
     {
+
+
         $Attendance = new Attendance();
         $Attendance->title = $request->title;
         $Attendance->description = $request->description;
@@ -63,6 +65,18 @@ class AbsensiController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'start_time' => 'required',
+            'batas_start_time' => 'required',
+            'end_time' => 'required',
+            'batas_end_time' => 'required',
+            'position_id' => 'required',
+        
+        ]);
+
         $Attendance = Attendance::find($id);
         $Attendance->title = $request->title;
         $Attendance->description = $request->description;
