@@ -6,8 +6,7 @@ Features
 -   CRUD Users (Admin, Operator and Users (Employees))
 -   CRUD Holidays (CRUD Hari Libur)
 -   CRUD Attendances (Can have multiple attendances and can using only button or presence using QRCode)
--   Using Datatables (Powergrid livewire)
--   Can Export to Excel and CSV
+-   Using Datatables
 -   and more...
 
 ## Cara Install di Local
