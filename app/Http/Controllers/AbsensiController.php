@@ -19,10 +19,10 @@ class AbsensiController extends Controller
         ]);
     }
 
-    public function addabsensi()
+    public function AddAbsensi()
     {
         $position = Position::all();
-        return inertia('Admin/addabsensi',[
+        return inertia('Admin/AddAbsensi',[
             'Position' => $position,
         ]);
     }

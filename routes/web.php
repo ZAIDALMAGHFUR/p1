@@ -60,7 +60,7 @@ Route::delete('/deleteharilibur/{id}', [HariliburController::class, 'destroy'])-
 
 //Absensi
 Route::get('/absensi',[AbsensiController::class, 'index'])->middleware(['auth', 'OnlyAdmin'])->name('absensi');
-Route::get('/addabsensi',[AbsensiController::class, 'addabsensi'])->middleware(['auth', 'OnlyAdmin'])->name('addabsensi');
+Route::get('/AddAbsensi',[AbsensiController::class, 'AddAbsensi'])->middleware(['auth', 'OnlyAdmin'])->name('AddAbsensi');
 Route::post('/storeabsensi',[AbsensiController::class, 'store'])->middleware(['auth', 'OnlyAdmin'])->name('storeabsensi');
 Route::get('/editabsensi/{id}', [AbsensiController::class, 'edit'])->middleware(['auth', 'OnlyAdmin'])->name('editabsensi');
 Route::put('/updateabsensi/{id}', [AbsensiController::class, 'update'])->middleware(['auth', 'OnlyAdmin'])->name('updateabsensi');
