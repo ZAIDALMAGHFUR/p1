@@ -26,6 +26,7 @@ cd absensi-app
 
 # install semua package
 composer install
+npm i 
 
 # pilih salah satu
 # 1. windows
@@ -47,7 +48,7 @@ php artisan serve
 -   Clone this repository
 
 ```sh
-git clone https://github.com/muhammadpauzi/absensi-app.git
+git clone https://github.com/ZAIDALMAGHFUR/p1
 # make sure you are in the folder
 cd absensi-app
 ```
