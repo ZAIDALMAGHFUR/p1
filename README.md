@@ -21,7 +21,7 @@ Features
 git clone https://github.com/ZAIDALMAGHFUR/larac-app
 
 # masuk ke foldernya
-cd absensi-app
+cd larac-app
 
 # install semua package
 composer install
