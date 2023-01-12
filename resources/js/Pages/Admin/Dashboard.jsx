@@ -154,7 +154,22 @@ export default function Dashboard(props) {
                 <Head title="Dashboard" />
 
                 <div className="m-[5rem]">
+
+                    <h1 className='text-2xl'> Hallo selamat datang 
+                         <span className='ml-3 font-extrabold text-cyan-500'>{props.auth.user.name}</span>
+                    </h1>
+
+                    <div className='border-2 border-black h-[10rem] w-[30rem] rounded-lg'>
+                        <div className='m-[2rem]'>
+                             <li>Nama : <span>{props.auth.user.name}</span></li>
+                             <li>Email : <span>{props.auth.user.email}</span></li>
+                             <li>No Phone : <span>{props.auth.user.phone}</span></li>
+                             <li>Bergabung Pada : <span>{props.auth.user.created_at}</span></li>
+                        </div>
+                    </div>
+                        <div className='mt-10'>
                             <a href="/lihatabsensi"><button type="button" className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Lihat Absensi</button></a>
+                        </div>
                 </div>
             </AuthenticatedLayout>
         )

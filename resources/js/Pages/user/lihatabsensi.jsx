@@ -1,8 +1,15 @@
 import React from 'react'
 
-function lihatabsensi() {
+function lihatabsensi(props) {
+  console.log(props.Attendance)
   return (
-    <div>lihatabsensi</div>
+    <>
+      <div className='m-[3rem]'>
+        <div className='border-2 border-black h-[20rem] rounded-2xl'>
+          {props.Attendance.map((e=>e.title))}
+        </div>
+      </div>
+    </>
   )
 }
 
