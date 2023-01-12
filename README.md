@@ -18,7 +18,7 @@ Features
 
 ```sh
 # clone terlebih dahulu lewat cli (cmd, bash, atau yg lain)
-git clone https://github.com/ZAIDALMAGHFUR/p1
+git clone https://github.com/ZAIDALMAGHFUR/larac-app
 
 # masuk ke foldernya
 cd absensi-app
@@ -47,7 +47,7 @@ php artisan serve
 -   Clone this repository
 
 ```sh
-git clone https://github.com/ZAIDALMAGHFUR/p1
+git clone https://github.com/ZAIDALMAGHFUR/larac-app
 # make sure you are in the folder
 cd absensi-app
 ```
