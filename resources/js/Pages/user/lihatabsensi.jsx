@@ -6,7 +6,9 @@ function lihatabsensi(props) {
     <>
       <div className='m-[3rem]'>
         <div className='border-2 border-black h-[20rem] rounded-2xl'>
-          {props.Attendance.map((e=>e.title))}
+          <div>
+              {props.Attendance.map((e=>e.title))}
+          </div>
         </div>
       </div>
     </>
